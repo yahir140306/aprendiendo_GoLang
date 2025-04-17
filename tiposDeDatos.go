@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+var numero int = 2
+
 func tiposDeDatos() {
 	var nombrePersona string = `Juanchis`
 	apellido := "Isidro"
@@ -14,7 +16,9 @@ func tiposDeDatos() {
 
 	var asoActual int16 = 2024
 	edad := 40
+	i, j := 42, 2500
 
 	fmt.Println("Año: ", asoActual)
 	fmt.Println("Edad: ", edad)
+	fmt.Println(i, j)
 }
