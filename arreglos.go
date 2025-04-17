@@ -26,4 +26,17 @@ func arreglos() {
 	fmt.Println(listaPaises3)
 
 	// fmt.Println(listaPaises)
+
+	///
+
+	var primos = [6]int{2, 3, 5, 7, 11, 13}
+	var s []int = primos[1:4]
+	fmt.Println(s) // [3 5 7]
+
+	s = append(s, 17)
+
+	fmt.Println(s) // [3 5 7 17]
+
+	fmt.Println(primos) // [2 3 5 7 17 11 13]
+
 }

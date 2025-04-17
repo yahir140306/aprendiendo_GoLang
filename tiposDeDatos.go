@@ -22,3 +22,22 @@ func tiposDeDatos() {
 	fmt.Println("Edad: ", edad)
 	fmt.Println(i, j)
 }
+
+// ejemplo
+// type Persona struct {
+// 	Nombre   string
+// 	Apellido string
+// 	Edad     int
+// }
+
+// var persona = Persona{
+// 	Nombre:   "Paco",
+// 	Apellido: "Hernandez",
+// 	Edad:     32,
+// }
+
+// func imprimir() {
+// 	fmt.Println(persona.Nombre)
+// }
+
+// var persona2 = Persona{}
