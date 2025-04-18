@@ -8,4 +8,6 @@ func main() {
 	arreglos()
 	maps()
 	condiciones()
+	ciclos()
+	usarSwitch()
 }
