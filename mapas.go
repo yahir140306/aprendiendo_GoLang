@@ -33,3 +33,21 @@ func condiciones() {
 		fmt.Println("Pequeño")
 	}
 }
+
+func usarSwitch() {
+	var fruta string
+
+	fmt.Println("Ingrese una fruta: ")
+	fmt.Scan(&fruta)
+
+	switch fruta {
+	case "manzana":
+		fmt.Println("manzana")
+
+	case "pera":
+		fmt.Println("pera")
+
+	case "sandia":
+		fmt.Println("sandia")
+	}
+}
