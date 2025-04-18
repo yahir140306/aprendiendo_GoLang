@@ -29,14 +29,26 @@ func arreglos() {
 
 	///
 
+	/// position		{0, 1, 2, 3, 4, 5 }
 	var primos = [6]int{2, 3, 5, 7, 11, 13}
 	var s []int = primos[1:4]
 	fmt.Println(s) // [3 5 7]
 
-	s = append(s, 17)
+	s = append(s, 17) // [3 5 7] -> [3 5 7 17]
 
 	fmt.Println(s) // [3 5 7 17]
 
 	fmt.Println(primos) // [2 3 5 7 17 11 13]
 
+	//
+
+	// var a [10]int : es lo mismo ⬇️
+	// a[0:10]	a[0:]
+	// a[:10]	a[:]
+
+	// make
+
+	a := make([]int, 0, 5)
+
+	fmt.Println(a)
 }
