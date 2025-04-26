@@ -31,9 +31,72 @@ func main() {
 	http.HandleFunc("/crear", Crear)
 	http.HandleFunc("/insertar", Insertar)
 
+	http.HandleFunc("/borrar", Borrar)
+	http.HandleFunc("/editar", Editar)
+	http.HandleFunc("/actualizar", Actualizar)
+
 	log.Println("Servidor corriendo")
 	fmt.Println("Servidor corriendo")
 	http.ListenAndServe(":8080", nil)
+}
+
+func Actualizar(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+
+		id := r.FormValue("id")
+		nombre := r.FormValue("nombre")
+		correo := r.FormValue("correo")
+
+		conexionEstablecida := conexionBD()
+		modificarRegistro, err := conexionEstablecida.Prepare("UPDATE empleados SET nombre=?, correo=? WHERE id=?")
+
+		if err != nil {
+			panic(err.Error())
+		}
+		modificarRegistro.Exec(nombre, correo, id)
+
+		http.Redirect(w, r, "/", 301)
+	}
+}
+
+func Editar(w http.ResponseWriter, r *http.Request) {
+	idEmpleado := r.URL.Query().Get("id")
+
+	conexionEstablecida := conexionBD()
+
+	registro, err := conexionEstablecida.Query("SELECT * FROM empleados WHERE id=?", idEmpleado)
+
+	empleado := Empleado{}
+
+	for registro.Next() {
+		var id int
+		var nombre, correo string
+		err = registro.Scan(&id, &nombre, &correo)
+		if err != nil {
+			panic(err.Error())
+		}
+
+		empleado.Id = id
+		empleado.Nombre = nombre
+		empleado.Correo = correo
+	}
+	fmt.Println(empleado)
+	plantillas.ExecuteTemplate(w, "editar", empleado)
+
+}
+
+func Borrar(w http.ResponseWriter, r *http.Request) {
+	idEmpleado := r.URL.Query().Get("id")
+
+	conexionEstablecida := conexionBD()
+
+	borrarRegistro, err := conexionEstablecida.Prepare("DELETE FROM empleados WHERE id=?")
+
+	if err != nil {
+		panic(err.Error())
+	}
+	borrarRegistro.Exec(idEmpleado)
+	http.Redirect(w, r, "/", 301)
 }
 
 type Empleado struct {
@@ -72,7 +135,7 @@ func Inicio(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(arregloEmpleado)
 
 	// fmt.Fprintf(w, "Hola Mundo")
-	plantillas.ExecuteTemplate(w, "inicio", nil)
+	plantillas.ExecuteTemplate(w, "inicio", arregloEmpleado)
 }
 
 func Crear(w http.ResponseWriter, r *http.Request) {
