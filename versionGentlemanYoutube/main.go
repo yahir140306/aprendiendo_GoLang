@@ -39,5 +39,12 @@ func main() {
 
 	// Structs
 	type Persona struct {
+		Nombre string
+		Edad   int
 	}
+
+	persona := Persona{Nombre: "Juanchis", Edad: 30}
+	fmt.Println(persona)
+
+	condicionales()
 }
