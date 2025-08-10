@@ -37,13 +37,21 @@ func contador() func() int {
 	}
 }
 
+type Rectangulo struct {
+	Ancho, Alto float64
+}
+
+func (r Rectangulo) Area() float64 {
+	return r.Ancho * r.Alto
+}
+
 func funciones() {
 	// cociente, error := dividir(10, 0)
 	// if error != nil {
 	// 	fmt.Println(error)
 	// 	return
 	// }
-	// fmt.Println(cociente)
+	// fmt.Println(cociente)k
 
 	// closure
 	cont := contador()
@@ -52,4 +60,7 @@ func funciones() {
 	fmt.Println("Contador: ", cont())
 	fmt.Println("Contador: ", cont())
 	fmt.Println("Contador: ", cont())
+
+	rect := Rectangulo{Ancho: 5, Alto: 10}
+	fmt.Println("Área del rectángulo:", rect.Area())
 }
