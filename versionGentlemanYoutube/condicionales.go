@@ -3,18 +3,16 @@ package main
 import "fmt"
 
 func condicionales() {
-
+	defer fmt.Println("F I N")
 	// condicionales
 	edad := 20
 	if edad < 18 {
 		fmt.Printf("Eres menor de edad")
 		return
 	}
-
 	fmt.Println("Eres mayor de edad")
 
 	// ciclos
-
 	for i := 0; i < 5; i++ {
 		fmt.Println("Iteración:", i)
 		fmt.Printf("Iteración: %d\n", i)
@@ -34,7 +32,6 @@ func condicionales() {
 		if n == 5 {
 			continue
 		}
-
 		fmt.Printf("n en bucle infinito: %d\n", n)
 
 		if n >= 7 {
