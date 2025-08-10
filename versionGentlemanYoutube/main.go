@@ -42,5 +42,6 @@ func main() {
 	// fmt.Println(persona)
 
 	// condicionales()
-	funciones()
+	// funciones()
+	punteros()
 }
