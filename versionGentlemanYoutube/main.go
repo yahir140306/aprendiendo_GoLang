@@ -43,5 +43,6 @@ func main() {
 
 	// condicionales()
 	// funciones()
-	punteros()
+	// punteros()
+	interfaces()
 }
