@@ -22,7 +22,7 @@ func punteros() {
 
 	// new()
 	puntero := new(int) // puntero int inicializado en 0
-	fmt.Println("Valor inicial con new: ", *puntero)
+	fmt.Println("Valor inicial con new: ", puntero)
 	*puntero = 20
 	fmt.Println("Valor inicial con new: ", *puntero)
 
