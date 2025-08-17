@@ -45,4 +45,5 @@ func main() {
 	// funciones()
 	// punteros()
 	interfaces()
+	funciones()
 }
